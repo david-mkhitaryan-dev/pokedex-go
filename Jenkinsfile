@@ -16,7 +16,7 @@ pipeline {
             steps {
 				sh """mkdir -p jenkins_home"""
 				sh """chown -R 1000:1000 jenkins_home"""
-                sh """docker run --name jenkins -d -u root -p 8080:8080 -v $(which docker):/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:alpine"""
+                sh """docker run --name jenkins -d -u root -p 8080:8080 -v \$(which docker):/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:alpine"""
             }
         }
     }
