@@ -13,11 +13,12 @@ pipeline {
         }
 		stage('Test') {
             steps {
-				sh """docker run pokedex npm test"""
+				sh """docker run --name pokedex pokedex npm test"""
             }
         }
 		stage('Deploy') {
             steps {
+				sh """docker rm -f pokedex || true"""
 				sh """docker run -p 5555:5555 -d pokedex"""
             }
         }
