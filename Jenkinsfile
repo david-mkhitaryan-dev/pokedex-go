@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-		stage('Git clone') {
+		stage('Git checkout') {
             steps {
-                sh """git clone https://github.com/david-mkhitaryan-dev/pokedex-go.git"""
+                checkout scm
             }
         }
         stage('Build and run pokedex') {
